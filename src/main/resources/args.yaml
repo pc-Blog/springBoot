@@ -1,0 +1,24 @@
+# 参数配置
+
+postgresql:
+  url: "bg-postgres"
+  port: 15432
+  username: postgres
+  password: 123456
+
+redis:
+  url: "bg-redis"
+  port: 6379
+  password: 123456
+
+
+internet:
+  PORT: 8080
+minio:
+  clientPoint: http://localhost:19090
+  serverPoint: http://bg-minio:9000
+  accessKey: minioadmin  # 访问密钥（默认 minioadmin）
+  secretKey: minioadmin  # 密钥（默认 minioadmin）
+  bucket: blog
+
+

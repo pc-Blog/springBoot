@@ -1,0 +1,43 @@
+spring:
+  config:
+    import:
+      - optional:classpath:args-dev.yaml
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 1024MB
+  application:
+    name: blog
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${postgresql.url:localhost}:${postgresql.port:5432}/${spring.datasource.name}
+    username: ${postgresql.username:postgres}
+    password: ${postgresql.password:123456}
+    name: blog
+
+  data:
+    redis:
+      host: ${redis.url}
+      port: ${redis.port}
+      password: ${redis.password}
+      database: 0
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+          max-wait: 5000ms
+      timeout: 30000
+      connect-timeout: 5000
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+      table-prefix: t_
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  mapper-locations: classpath*:/mapper/**/*.xml
+server:
+  port: ${internet.PORT}
