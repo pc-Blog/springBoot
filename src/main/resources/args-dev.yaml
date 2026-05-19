@@ -30,6 +30,9 @@ jwt:
   secret: blog-jwt-secret-key-2026-please-change-in-production
   expiration: 604800
 
+frontend:
+  url: http://localhost:3000
+
 op:
   url: http://localhost
   port: 8016
